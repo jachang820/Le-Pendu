@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="css/game.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<script src="js/game.js"></script>
+		<title>Le Pendu</title>
+	</head>
+	<body>
+		<main>
+			<div class="fluid-container">
+				<div class="wallpaper">
+					<img src="images/game.png" alt="Le Pendu. By Albert Besnard.">
+				</div>
+				<img class="crows" src="images/crows.png">
+				<img class="hang" src="images/head.png">
+				<img class="bubble" src="images/bubble.png">
+				<% if flash[:message] %>
+				  <p>
+				    <span class="thought"><%= flash[:message] %></span>
+				  </p>
+				<% end %>
+				<span class="word">ignorantio elenchi</span>
+				<span class="shadow">ignorantio elenchi</span>
+
+				<form action="/guess" method="post">
+				  <input type="text" size="1" name="guess" autocomplete="off"/>
+				  <input type="submit" value="Guess!"/>
+				</form>
+				<form action="/create" method="post">
+				  <button class="begin" type="submit" value="Cast a spell!">Cast a spell!</button>
+				</form>	
+			</div>
+		</main>
+	</body>
+</html>
