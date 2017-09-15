@@ -3,6 +3,8 @@ require 'hangman_game'
 
 describe HangmanGame do 
 
+	number_of_words = 152
+
 	def multiple_guesses(game, letters)
 		letters.each_char do |letter|
 			game.guess(letter)
@@ -12,7 +14,7 @@ describe HangmanGame do
 	describe "get random word" do
 		it "obtains the number of lines in word file" do
 			num = HangmanGame.total_words
-			expect(num).to eq(151)
+			expect(num).to eq(number_of_words)
 		end
 		it "retrieves a random line from the word file" do
 			word = HangmanGame.get_random_word(0)

@@ -11,7 +11,7 @@ class HangmanGame
 	)
 
 	def self.total_words
-		File.foreach("lib/words").count
+		IO.foreach("lib/words").count
 	end
 
 	def self.get_random_word(word_num=nil)
@@ -19,7 +19,7 @@ class HangmanGame
 			Random.new.rand(self.total_words) : word_num
 		count = 0
 		word_in_file = ""
-		File.foreach("lib/words") do |line|
+		IO.foreach("lib/words") do |line|
 			if count == rnd
 				word_in_file = line.chomp
 				break
@@ -29,10 +29,9 @@ class HangmanGame
 		word_in_file
 	end
 
-	def initialize(word=nil)
-		random_word = self.class.get_random_word
-		@word = word.nil? ? random_word : word
-		@output = output
+	def initialize(word)
+		@word = word
+		@output = set_output
 		@correct_guesses = ""
 		@wrong_guesses = ""
 		@repeat_guesses = 0
@@ -40,7 +39,7 @@ class HangmanGame
 		@attempts_at_cheating = 0
 	end
 
-	def output
+	def set_output
 		@output = @word.gsub(/[^-#{@correct_guesses} ]/, '_')
 	end
 
@@ -55,7 +54,7 @@ class HangmanGame
 			elsif already_guessed? letter
 				result = repeated
 			else
-				result = letter
+				result = letter.upcase + "!"
 				if @word.include? letter
 					@correct_guesses << letter
 				else
@@ -63,6 +62,7 @@ class HangmanGame
 				end
 			end
 		end
+		set_output
 		result
 	end
 
@@ -101,6 +101,7 @@ class HangmanGame
 			"Age is just a number."
 		when 5
 			@correct_guesses = ""
+			set_output
 			"...I forgot."
 		else
 			:nihilism
@@ -131,7 +132,4 @@ class HangmanGame
 			@invalid_guesses >= 4 ||
 			@attempts_at_cheating >= 2
 	end
-
-
-
 end

@@ -1,20 +1,15 @@
 				
-<div class="wallpaper">
-	<img src="images/game.png" alt="Le Pendu. By Albert Besnard.">
-</div>
-<img class="crows" src="images/crows.png">
-<img class="hang" src="images/head.png">
-<img class="bubble" src="images/bubble.png">
-<% if flash[:message] %>
-  <p>
-    <span class="thought"><%= flash[:message] %></span>
-  </p>
+<div id="guess-status"><%= flash[:guess_status] %></div>
+<% if session[:num_wrong] >= 4 %>
+	<img id="crows" src="images/crows.png">
 <% end %>
-<span class="word">ignorantio elenchi</span>
-<span class="shadow">ignorantio elenchi</span>
+<img id="hang" src="images/hanged-man-<%= session[:num_wrong] %>.png">
+<img class="bubble" src="images/bubble.png">
+<span class="bubble"><%= flash[:message] %></span>
+<span class="word"><%= @game.output %></span>
+<span class="shadow"><%= @game.output %></span>
 
-<form action="/guess" method="post">
-  <input type="text" size="1" name="guess" autocomplete="off"/>
+<form id="guess-form" action="/guess" method="post">
+  <input type="text" size="1" id="guess" name="guess" autocomplete="off"/>
   <input type="submit" value="Guess!"/>
 </form>
-<%= erb :create %>

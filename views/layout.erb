@@ -14,7 +14,14 @@
 	<body>
 		<main>
 			<div class="fluid-container">
+				<div class="wallpaper">
+					<img src="images/<%= @wallpaper %>.jpg" alt="Image describing game state.">
+				</div>
 				<%= yield %>
+				<input type="image" class="volume" id="audio" src="images/speaker.svg" alt="Speaker" />
+				<input type="image" class="volume" id="mute" src="images/mute.svg" alt="Mute" />
+				<span id="volume-status"><%= session[:muted] %></span>
+				<%= erb :new_spell %>
 			</div>
 		</main>
 	</body>

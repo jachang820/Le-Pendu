@@ -16,16 +16,13 @@
 				<div class="wallpaper">
 					<img src="images/game.png" alt="Le Pendu. By Albert Besnard.">
 				</div>
+				<div id="guess-status"></div>
 				<img class="crows" src="images/crows.png">
 				<img class="hang" src="images/head.png">
 				<img class="bubble" src="images/bubble.png">
-				<% if flash[:message] %>
-				  <p>
-				    <span class="thought"><%= flash[:message] %></span>
-				  </p>
-				<% end %>
-				<span class="word">ignorantio elenchi</span>
-				<span class="shadow">ignorantio elenchi</span>
+				<span id="letter" class="bubble">A!</span>
+				<span class="word">crucio</span>
+				<span class="shadow">crucio</span>
 
 				<form action="/guess" method="post">
 				  <input type="text" size="1" name="guess" autocomplete="off"/>
