@@ -209,7 +209,7 @@ $(document).ready(function() {
 			setTimeout(function() {
 				$(".bubble").hide();
 				$("span.bubble").removeAttr("id");
-			}, 2000);
+			}, 4000);
 		}
 		else {
 			$(".bubble").hide();
