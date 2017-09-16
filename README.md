@@ -1,6 +1,7 @@
 # Le-Pendu
 
-Hangman game with a twist. This is a hobby project based off what I learned from BerkeleyX's CS169 MOOC. A Hangperson game was the first project in that course; however, this app was written from scratch using that as reference and inspiration. It runs off a Sinatra (Ruby) server, using RSpec and Simplecov gems for TDD testing. A good attempt was made to make the game more responsive and RESTful, to allow it to be played without Javascript and for smaller screens (like a mobile phone or tablet). Because of that, a lot of time was spent testing the Javascript, particularly AJAX so that guesses could be made without reloading the entire page (so that the background music wouldn't be interrupted). The music was composed on FLStudio, and trimmed in Audacity to make it more loopable.
+Hangman game with a twist. <br />
+This is a hobby project based off what I learned from BerkeleyX's CS169 MOOC. A Hangperson game was the first project in that course; however, this app was written from scratch using that as reference and inspiration. It runs off a Sinatra (Ruby) server, using RSpec and Simplecov gems for TDD testing. A good attempt was made to make the game more responsive and RESTful, to allow it to be played without Javascript and for smaller screens (like a mobile phone or tablet). Because of that, a lot of time was spent testing the Javascript, particularly AJAX so that guesses could be made without reloading the entire page (so that the background music wouldn't be interrupted). The music was composed on FLStudio, and trimmed in Audacity to make it more loopable.
 
 ## Built With
 
@@ -10,36 +11,42 @@ Hangman game with a twist. This is a hobby project based off what I learned from
 * [FLStudio](https://www.image-line.com/flstudio/) - Used to compose the background music
 * [Audacity](http://www.audacityteam.org/help/documentation/) - Used to trim music and make loops
 
+## Todo
+
+- [ ] Remove more JS dependencies. Particularly, try to allow audio without JS.
+- [ ] Refactor JS and CSS scripts.
+- [ ] Allow mobile users to draw their guesses instead of using ugly text box.
+
 ## Authors
 
 * **Jonathan Chang** - *Initial work* - [jachang820](https://github.com/jachang820)
 
 ## Acknowledgments
 
-* **Backgrounds**
+### Backgrounds
 
-Title: Le Pendu
-Author: Albert Besnard
-Year: 1873
-https://leprincelointain.blogspot.de/2016/07/albert-besnard-1849-1934-le-pendu-1873.html
+**Title:** Le Pendu <br />
+**Author:** Albert Besnard <br />
+**Year:** 1873 <br />
+**Website:** https://leprincelointain.blogspot.de/2016/07/albert-besnard-1849-1934-le-pendu-1873.html <br />
+ <br />
+**Title:** Girl with a Balloon <br />
+**Author:** Banksy <br />
+**Location:** South Bank of London <br />
+ <br />
+**Title:** Crows Abbey <br />
+**Author:** Pierre Fabre <br />
+**Studio:** GKaster/Bright Photon <br />
+**Website:** http://bphoton.com/ <br />
 
-Title: Girl with a Balloon
-Author: Banksy
-Location: South Bank of London
+### Icons
 
-Title: Crows Abbey
-Author: Pierre Fabre
-Studio: GKaster/Bright Photon
-http://bphoton.com/
-
-* **Icons**
-
-Author: Smashicons
-License: Creative Commons BY 3.0.
-https://www.flaticon.com/authors/smashicons
-
-* **Effects**
-Title: Essential Retro Video Game Sound Effects Collection
-Author: Juhani Junkala
-License: Creative Commons CC0
-juhani.junkala@musician.org
+**Author:** Smashicons <br />
+**License:** Creative Commons BY 3.0. <br />
+**Website:** https://www.flaticon.com/authors/smashicons <br />
+ <br />
+### Effects
+**Title:** Essential Retro Video Game Sound Effects Collection <br />
+**Author:** Juhani Junkala <br />
+**License:** Creative Commons CC0 <br />
+**Email:** juhani.junkala@musician.org <br />
