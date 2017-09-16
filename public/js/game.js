@@ -139,7 +139,7 @@ $(document).ready(function() {
 				});
 			}
 			else {
-				if (String.fromCharCode(letter) == 13) {
+				if (letter == 13) {
 					$(".begin").click();
 				}
 			}
