@@ -100,50 +100,62 @@ $(document).ready(function() {
 		   ajax to guess to avoid interrupting music.
 		*/
 		let letter = e.which;
-		if ($(window).width() > MIN_WINDOW_WIDTH) {
-			if (window.location.pathname == "/game") {
+		if (window.location.pathname == "/game") {
+			/* Stop enter key to prevent unnecessary GET requests. */
+			if (letter != 13) {
 				$("#guess").val(String.fromCharCode(letter));
-				$.ajax({
-					url: '/guess.json',
-					type: 'POST',
-					dataType: 'json',
-					data: {guess: String.fromCharCode(letter)},
-					success: function(data) {
-						/* Check end state */
-						if (data.state != "play") {
-							window.location.replace(`/${data.state}`);
-						}
-
-						/* Update crow if 4 or more wrong guesses. */
-						if (data.num_wrong >= 4) {
-							$("#crows-box").html(`<img id="crows" src="images/crows.png">`)
-						}
-
-						/* Update hanged man, speech bubble and word. */
-						$("#hang").attr("src", `images/hanged-man-${data.num_wrong}.png`);
-						$("span.bubble").text(data.message);
-						$("#word").text(data.output);
-						$("#shadow").text(data.output);
-
-						/* Invisible helper field. */
-						$("#guess-status").text(data.guess_status);
-
-						/* Process and draw new data. */
-						shout_msg();
-						guess_status();
-
-					},
-					error: function(XMLHttpRequest, textStatus, errorThrown) {
-						alert(`Error: ${errorThrown}`);
-					}
-				});
-			}
-			else {
-				if (letter == 13) {
-					$(".begin").click();
-				}
+				$("#guess").trigger("input");
 			}
 		}
+		else {
+			if (letter == 13) {
+				$(".begin").click();
+			}
+		}
+	});
+
+	/* Allow guesses to be made without pressing Guess button
+	   to reduce key presses.
+	*/
+	$("#guess").on('input propertychange paste', function() {
+		let letter = $("#guess").val()[0].trim();
+		if (letter != "") {
+			$.ajax({
+				url: '/guess.json',
+				type: 'POST',
+				dataType: 'json',
+				data: {guess: letter},
+				success: function(data) {
+					/* Check end state */
+					if (data.state != "play") {
+						window.location.replace(`/${data.state}`);
+					}
+
+					/* Update crow if 4 or more wrong guesses. */
+					if (data.num_wrong >= 4) {
+						$("#crows-box").html(`<img id="crows" src="images/crows.png">`)
+					}
+
+					/* Update hanged man, speech bubble and word. */
+					$("#hang").attr("src", `images/hanged-man-${data.num_wrong}.png`);
+					$("span.bubble").text(data.message);
+					$("#word").text(data.output);
+					$("#shadow").text(data.output);
+
+					/* Invisible helper field. */
+					$("#guess-status").text(data.guess_status);
+
+					/* Process and draw new data. */
+					shout_msg();
+					guess_status();
+
+				},
+				error: function(XMLHttpRequest, textStatus, errorThrown) {
+					alert(`Error: ${errorThrown}`);
+				}
+			});
+		}
+		$("#guess").val("");
 	});
 
 	/* Volume buttons do 3 things:
@@ -257,11 +269,13 @@ $(document).ready(function() {
 	            is small).
 	*/
 	function show_guess_form() {
+		$("#guess").focus();
 		if ($(window).width() > MIN_WINDOW_WIDTH) {
 			$("#guess-form").hide();
 		}
 		else {
 			$("#guess-form").show();
+			$("#guess-button").hide();
 		}
 	}
 
