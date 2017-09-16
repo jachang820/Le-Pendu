@@ -1,0 +1,305 @@
+@media all and (max-width: 400px) and (min-height: 400px) {
+	/* Common to all views */
+
+	body {
+		overflow: hidden;
+		background-color: #1f1e19;
+	}
+
+	.fluid-container {
+		background-color: #1f1e19;
+		overflow: hidden;
+	}
+
+	.wallpaper {
+		width: calc(88vh * 4/7);
+		margin: 0 auto;
+	}
+
+	img {
+		height:88vh;
+	}
+
+	.volume {
+		position: absolute;
+		top: calc(0.9 * 88vh);
+		left: calc(50vw - (88vh * 4/7) * 0.4);
+		width: calc(0.055 * 88vh);
+		height: calc(0.055 * 88vh);
+		cursor: pointer;
+	}
+
+	#volume-status {
+		position: absolute;
+		top: 0;
+		left: 0;
+		display: none;
+	}
+
+	.js {
+		display: none;
+	}
+
+	.begin {
+		position: absolute;
+		top: calc(0.91 * 88vh);
+		left: 50vw;
+		height: calc(0.05 * 88vh);
+		width: calc(0.27 * 88vh);
+		background-color: transparent;
+		border: none;
+		color: #cc2233;
+		font-size: calc(0.035 * 88vh);
+		filter: drop-shadow(0.5px 0.5px 0.5px #ddcccc) 
+						drop-shadow(-0.5px -0.5px 0.5px #ddcccc) 
+						drop-shadow(0.5px -0.5px 0.5px #ddcccc) 
+						drop-shadow(-0.5px 0.5px 0.5px #ddcccc);
+	}
+
+	h1 {
+		margin-top: 0;
+		margin-bottom: calc(0.02 * 88vh);
+		font-family: Garamond, serif;
+		font-weight: bold;
+		font-size: calc(0.055 * 88vh);
+	}
+
+	.sink {
+		display: none;
+		font-family: 'Lucida Console', Monaco, monospace;
+	}
+
+	p, span, a, input {
+		display: inline-block;
+		font-size: calc(0.024 * 88vh);
+		line-height: calc(0.032 * 88vh);
+		margin: 0;
+	}
+
+	/* New */
+
+	h1.new {
+		text-align: center;
+		color: #958979;
+	}
+
+	div.plot.new {
+		position: absolute;
+		top: calc(0.5 * 88vh);
+		left: calc(50vw - (88vh * 4/7) * 0.45);
+		background-color: #2a2924;
+		width: calc((88vh * 4/7) * 0.9);
+		height: calc(0.48 * 88vh);
+		padding: calc(0.025 * 88vh);
+		border-style: double;
+		border-color: #c9bcac;
+	}
+
+	.plot.new p {
+		color: #484545;
+	}
+
+	.sink.new {
+		color: #6a6767;
+	}
+
+	#credits {
+		position: absolute;
+		top: calc(0.467 * 88vh);
+		left: calc(50vw - (88vh * 4/7) * 0.45);
+		background-color: #eeeeee;
+	}
+
+	#music {
+		position: absolute;
+		top: 0;
+		left: 0;
+		display: none;
+	}
+
+	/* Win */
+
+	h1.win {
+		color: #000000;
+	}
+
+	div.plot.win {
+		position: absolute;
+		top: calc(0.08 * 88vh);
+		left: calc(50vw - (88vh * 4/7) * 0.35);
+		background-color: transparent;
+		width: calc((88vh * 4/7) * 0.7);
+		height: calc(0.48 * 88vh);
+		padding: calc(0.025 * 88vh);
+		border: none;
+	}
+
+	.sink.win {
+		color: #000000;
+	}
+
+	/* Lose */
+
+	img.lose {
+		filter: blur(1px) brightness(0.7) contrast(1.5);
+
+	}
+
+	h1.lose {
+		color: #ff3333;
+		filter: drop-shadow(1px 1px 1px #191814) 
+						drop-shadow(-1px -1px 1px #191814) 
+						drop-shadow(1px -1px 1px #191814) 
+						drop-shadow(-1px 1px 1px #191814);
+	}
+
+	div.plot.lose {
+		position: absolute;
+		top: calc(0.45 * 88vh);
+		left: calc(50vw - (88vh * 4/7) * 0.35);
+		background-color: transparent;
+		width: calc((88vh * 4/7) * 0.7);
+		height: calc(0.48 * 88vh);
+		padding: calc(0.025 * 88vh);
+		border: none;
+	}
+
+	.sink.lose {
+		color: #ffffff;
+	}
+
+	/* Nihilism */
+
+	h1.nihilism {
+		color: #ffffff;
+		filter: drop-shadow(1px 1px 1px #000000) 
+						drop-shadow(-1px -1px 1px #000000) 
+						drop-shadow(1px -1px 1px #000000) 
+						drop-shadow(-1px 1px 1px #000000);
+	}
+
+	div.plot.nihilism {
+		position: absolute;
+		top: calc(0.45 * 88vh);
+		left: calc(50vw - (88vh * 4/7) * 0.35);
+		background-color: transparent;
+		width: calc((88vh * 4/7) * 0.7);
+		height: calc(0.48 * 88vh);
+		padding: calc(0.025 * 88vh);
+		border: none;
+	}
+
+	.sink.nihilism {
+		color: #ffffff;
+		filter: drop-shadow(1px 1px 1px #cccccc) 
+						drop-shadow(-1px -1px 1px #000000) 
+						drop-shadow(1px -1px 1px #cccccc) 
+						drop-shadow(-1px 1px 1px #cccccc);
+	}
+
+	/* Game */
+
+	#hang {
+		position: absolute;
+		top : calc(0.094 * 88vh);
+		left: calc(50vw - (88vh * 4/7) * 0.194);
+		height: calc((440/1400) * 88vh);
+	}
+
+	#crows {
+		position: absolute;
+		top : calc(0.011 * 88vh);
+		left: calc(50vw - (88vh * 4/7) * 0.21);
+		height: calc((113/1400) * 88vh);
+	}
+
+	img.bubble {
+		position: absolute;
+		top : calc(0.23 * 88vh);
+		left: calc(50vw - (88vh * 4/7) * 0.06);
+		height: calc((250/1400) * 88vh);
+		width: calc((250/1400) * 88vh);
+		opacity: 0.65;
+	}
+
+	span.bubble {
+		position: absolute;
+		top: calc(0.25 * 88vh);
+		left: calc(50vw - (88vh * 4/7) * 0.035);
+		width: calc((250/1400) * 88vh * 0.8);
+		text-align: center;
+	}
+
+	#letter {
+		top: calc(0.28 * 88vh);
+		font-size: calc(0.07 * 88vh);
+	}
+
+	#word {
+		position: absolute;
+		top : calc(0.70 * 88vh);
+		left: calc(50vw - (88vh * 4/7) * 0.485);
+		width: calc(88vh * 4/7);
+		font-family: 'Lucida Console', Monaco, monospace;
+		font-size: calc(0.023 * 88vh);
+		color: #c8bcac;
+		letter-spacing: 0.7em;
+		text-align: center;
+	}
+
+	#shadow {
+		position: absolute;
+		top: calc(0.75 * 88vh);
+		left: calc(50vw - (88vh * 4/7) * 0.31);
+		width: calc(88vh * 4/7);
+		height: calc(0.3 * 88vh);
+		font-size: calc(2.3 * 88vh);
+		font-family: 'Lucida Console', Monaco, monospace;
+		color: #1f1e19;
+		letter-spacing: 0.7em;
+		transform: skewX(-20deg) translateX(-4.9em) scaleY(6);
+		filter: blur(0.5px);
+		text-align: center;
+	}
+
+	#guess-status {
+		position: absolute;
+		top: 0;
+		left: 0;
+		display: none;
+	}
+
+	#num-wrong {
+		position: absolute;
+		top: 0;
+		left: 0;
+		display: none;
+	}
+
+	#guess-form {
+		position: absolute;
+		top: calc(0.62 * 88vh);
+		left: calc(50vw - (88vh * 4/7) * 0.15);
+	}
+
+	#guess-form input {
+		height: calc(0.04 * 88vh);
+		
+	}
+
+	#guess {
+		width: calc((88vh * 4/7) * 0.08);
+	}
+
+	#guess-button {
+		width: calc((88vh * 4/7) * 0.2);
+	}
+
+	label {
+		color: #ffffff;
+		filter: drop-shadow(1px 0px 0 black)
+						drop-shadow(-1px 0px 0 black)
+						drop-shadow(0px 1px 0 black)
+						drop-shadow(0px -1px 0 black);
+	}
+}
