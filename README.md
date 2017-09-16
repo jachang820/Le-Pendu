@@ -1,4 +1,4 @@
-# Le-Pendu
+# Le Pendu (Hangman)
 
 Hangman game with a twist. <br />
 This is a hobby project based off what I learned from BerkeleyX's CS169 MOOC. A Hangperson game was the first project in that course; however, this app was written from scratch using that as reference and inspiration. It runs off a Sinatra (Ruby) server, using RSpec and Simplecov gems for TDD testing. A good attempt was made to make the game more responsive and RESTful, to allow it to be played without Javascript and for smaller screens (like a mobile phone or tablet). Because of that, a lot of time was spent testing the Javascript, particularly AJAX so that guesses could be made without reloading the entire page (so that the background music wouldn't be interrupted). The music was composed on FLStudio, and trimmed in Audacity to make it more loopable.
