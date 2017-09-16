@@ -12,20 +12,21 @@
 	}
 
 	.wallpaper {
-		width: calc(88vh * 4/7);
+		width: calc(90vh * 4/7);
 		margin: 0 auto;
 	}
 
 	img {
-		height:88vh;
+		height:90vh;
+		overflow: hidden;
 	}
 
 	.volume {
 		position: absolute;
-		top: calc(0.9 * 88vh);
-		left: calc(50vw - (88vh * 4/7) * 0.4);
-		width: calc(0.055 * 88vh);
-		height: calc(0.055 * 88vh);
+		top: calc(0.9 * 90vh);
+		left: calc(50vw - (90vh * 4/7) * 0.4);
+		width: calc(0.055 * 90vh);
+		height: calc(0.055 * 90vh);
 		cursor: pointer;
 	}
 
@@ -42,14 +43,14 @@
 
 	.begin {
 		position: absolute;
-		top: calc(0.91 * 88vh);
+		top: calc(0.91 * 90vh);
 		left: 50vw;
-		height: calc(0.05 * 88vh);
-		width: calc(0.27 * 88vh);
+		height: calc(0.05 * 90vh);
+		width: calc(0.27 * 90vh);
 		background-color: transparent;
 		border: none;
 		color: #cc2233;
-		font-size: calc(0.035 * 88vh);
+		font-size: calc(0.035 * 90vh);
 		filter: drop-shadow(0.5px 0.5px 0.5px #ddcccc) 
 						drop-shadow(-0.5px -0.5px 0.5px #ddcccc) 
 						drop-shadow(0.5px -0.5px 0.5px #ddcccc) 
@@ -58,10 +59,10 @@
 
 	h1 {
 		margin-top: 0;
-		margin-bottom: calc(0.02 * 88vh);
+		margin-bottom: calc(0.02 * 90vh);
 		font-family: Garamond, serif;
 		font-weight: bold;
-		font-size: calc(0.055 * 88vh);
+		font-size: calc(0.055 * 90vh);
 	}
 
 	.sink {
@@ -71,8 +72,8 @@
 
 	p, span, a, input {
 		display: inline-block;
-		font-size: calc(0.024 * 88vh);
-		line-height: calc(0.032 * 88vh);
+		font-size: calc(0.024 * 90vh);
+		line-height: calc(0.032 * 90vh);
 		margin: 0;
 	}
 
@@ -85,12 +86,12 @@
 
 	div.plot.new {
 		position: absolute;
-		top: calc(0.5 * 88vh);
-		left: calc(50vw - (88vh * 4/7) * 0.45);
+		top: calc(0.5 * 90vh);
+		left: calc(50vw - (90vh * 4/7) * 0.45);
 		background-color: #2a2924;
-		width: calc((88vh * 4/7) * 0.9);
-		height: calc(0.48 * 88vh);
-		padding: calc(0.025 * 88vh);
+		width: calc((90vh * 4/7) * 0.9);
+		height: calc(0.48 * 90vh);
+		padding: calc(0.025 * 90vh);
 		border-style: double;
 		border-color: #c9bcac;
 	}
@@ -105,8 +106,8 @@
 
 	#credits {
 		position: absolute;
-		top: calc(0.467 * 88vh);
-		left: calc(50vw - (88vh * 4/7) * 0.45);
+		top: calc(0.467 * 90vh);
+		left: calc(50vw - (90vh * 4/7) * 0.45);
 		background-color: #eeeeee;
 	}
 
@@ -125,12 +126,12 @@
 
 	div.plot.win {
 		position: absolute;
-		top: calc(0.08 * 88vh);
-		left: calc(50vw - (88vh * 4/7) * 0.35);
+		top: calc(0.08 * 90vh);
+		left: calc(50vw - (90vh * 4/7) * 0.35);
 		background-color: transparent;
-		width: calc((88vh * 4/7) * 0.7);
-		height: calc(0.48 * 88vh);
-		padding: calc(0.025 * 88vh);
+		width: calc((90vh * 4/7) * 0.7);
+		height: calc(0.48 * 90vh);
+		padding: calc(0.025 * 90vh);
 		border: none;
 	}
 
@@ -155,12 +156,12 @@
 
 	div.plot.lose {
 		position: absolute;
-		top: calc(0.45 * 88vh);
-		left: calc(50vw - (88vh * 4/7) * 0.35);
+		top: calc(0.45 * 90vh);
+		left: calc(50vw - (90vh * 4/7) * 0.35);
 		background-color: transparent;
-		width: calc((88vh * 4/7) * 0.7);
-		height: calc(0.48 * 88vh);
-		padding: calc(0.025 * 88vh);
+		width: calc((90vh * 4/7) * 0.7);
+		height: calc(0.48 * 90vh);
+		padding: calc(0.025 * 90vh);
 		border: none;
 	}
 
@@ -180,12 +181,12 @@
 
 	div.plot.nihilism {
 		position: absolute;
-		top: calc(0.45 * 88vh);
-		left: calc(50vw - (88vh * 4/7) * 0.35);
+		top: calc(0.45 * 90vh);
+		left: calc(50vw - (90vh * 4/7) * 0.35);
 		background-color: transparent;
-		width: calc((88vh * 4/7) * 0.7);
-		height: calc(0.48 * 88vh);
-		padding: calc(0.025 * 88vh);
+		width: calc((90vh * 4/7) * 0.7);
+		height: calc(0.48 * 90vh);
+		padding: calc(0.025 * 90vh);
 		border: none;
 	}
 
@@ -201,47 +202,47 @@
 
 	#hang {
 		position: absolute;
-		top : calc(0.094 * 88vh);
-		left: calc(50vw - (88vh * 4/7) * 0.194);
-		height: calc((440/1400) * 88vh);
+		top : calc(0.094 * 90vh);
+		left: calc(50vw - (90vh * 4/7) * 0.194);
+		height: calc((440/1400) * 90vh);
 	}
 
 	#crows {
 		position: absolute;
-		top : calc(0.011 * 88vh);
-		left: calc(50vw - (88vh * 4/7) * 0.21);
-		height: calc((113/1400) * 88vh);
+		top : calc(0.011 * 90vh);
+		left: calc(50vw - (90vh * 4/7) * 0.21);
+		height: calc((113/1400) * 90vh);
 	}
 
 	img.bubble {
 		position: absolute;
-		top : calc(0.23 * 88vh);
-		left: calc(50vw - (88vh * 4/7) * 0.06);
-		height: calc((250/1400) * 88vh);
-		width: calc((250/1400) * 88vh);
+		top : calc(0.23 * 90vh);
+		left: calc(50vw - (90vh * 4/7) * 0.06);
+		height: calc((250/1400) * 90vh);
+		width: calc((250/1400) * 90vh);
 		opacity: 0.65;
 	}
 
 	span.bubble {
 		position: absolute;
-		top: calc(0.25 * 88vh);
-		left: calc(50vw - (88vh * 4/7) * 0.035);
-		width: calc((250/1400) * 88vh * 0.8);
+		top: calc(0.25 * 90vh);
+		left: calc(50vw - (90vh * 4/7) * 0.035);
+		width: calc((250/1400) * 90vh * 0.8);
 		text-align: center;
 	}
 
 	#letter {
-		top: calc(0.28 * 88vh);
-		font-size: calc(0.07 * 88vh);
+		top: calc(0.28 * 90vh);
+		font-size: calc(0.07 * 90vh);
 	}
 
 	#word {
 		position: absolute;
-		top : calc(0.70 * 88vh);
-		left: calc(50vw - (88vh * 4/7) * 0.485);
-		width: calc(88vh * 4/7);
+		top : calc(0.70 * 90vh);
+		left: calc(50vw - (90vh * 4/7) * 0.485);
+		width: calc(90vh * 4/7);
 		font-family: 'Lucida Console', Monaco, monospace;
-		font-size: calc(0.023 * 88vh);
+		font-size: calc(0.023 * 90vh);
 		color: #c8bcac;
 		letter-spacing: 0.7em;
 		text-align: center;
@@ -249,11 +250,11 @@
 
 	#shadow {
 		position: absolute;
-		top: calc(0.75 * 88vh);
-		left: calc(50vw - (88vh * 4/7) * 0.31);
-		width: calc(88vh * 4/7);
-		height: calc(0.3 * 88vh);
-		font-size: calc(2.3 * 88vh);
+		top: calc(0.75 * 90vh);
+		left: calc(50vw - (90vh * 4/7) * 0.31);
+		width: calc(90vh * 4/7);
+		height: calc(0.3 * 90vh);
+		font-size: calc(2.3 * 90vh);
 		font-family: 'Lucida Console', Monaco, monospace;
 		color: #1f1e19;
 		letter-spacing: 0.7em;
@@ -278,21 +279,21 @@
 
 	#guess-form {
 		position: absolute;
-		top: calc(0.62 * 88vh);
-		left: calc(50vw - (88vh * 4/7) * 0.15);
+		top: calc(0.62 * 90vh);
+		left: calc(50vw - (90vh * 4/7) * 0.15);
 	}
 
 	#guess-form input {
-		height: calc(0.04 * 88vh);
+		height: calc(0.04 * 90vh);
 		
 	}
 
 	#guess {
-		width: calc((88vh * 4/7) * 0.08);
+		width: calc((90vh * 4/7) * 0.08);
 	}
 
 	#guess-button {
-		width: calc((88vh * 4/7) * 0.2);
+		width: calc((90vh * 4/7) * 0.2);
 	}
 
 	label {
