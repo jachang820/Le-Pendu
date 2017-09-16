@@ -1,5 +1,6 @@
 require 'sinatra/base'
 require 'sinatra/flash'
+require 'json'
 require './lib/hangman_game'
 
 class HangmanApp < Sinatra::Base
@@ -7,11 +8,28 @@ class HangmanApp < Sinatra::Base
   enable :sessions
   register Sinatra::Flash
   
+  helpers do
+    # Given letter, populate all fields necessary to draw html
+    def guess(letter)
+      letter = letter.to_s.downcase.gsub(/[\s]/, '')[0]
+      current_output = @game.output
+      flash.next[:message] = @game.guess letter
+      flash.next[:guess_status] = "other"
+      if flash.next[:message].length == 2
+        flash.next[:guess_status] = (current_output == @game.output) ?
+         "wrong" : "correct"
+      end
+      session[:num_wrong] += 1 if flash.next[:guess_status] == "wrong"
+    end
+  end
+
+  # Maintain session or start new game if session is lost
   before do
     word = HangmanGame.get_random_word
   	@game = session[:game] || HangmanGame.new(word)
   end
 
+  # Restore session
   after do
   	session[:game] = @game
   end
@@ -21,11 +39,14 @@ class HangmanApp < Sinatra::Base
   end
 
   get '/new' do
+    # Start game with sound off
     session[:muted] = "true"
+    # Load background image
     @wallpaper = "game"
   	erb :new
   end
 
+  # PUT requests are used to save sound preferences with ajax
   put '/new' do
     session[:muted] = params[:muted].to_s
   end
@@ -47,21 +68,27 @@ class HangmanApp < Sinatra::Base
     erb :game
   end
 
+  # Store sound preferences with ajax
   put '/game' do
     session[:muted] = params[:muted].to_s
   end
 
   post '/guess' do
-    letter = params[:guess].to_s.downcase.gsub(/[\s]/, '')[0]
-    current_output = @game.output
-    flash.next[:message] = @game.guess letter
-    flash.next[:guess_status] = "other"
-    if flash.next[:message].length == 2
-      flash.next[:guess_status] = (current_output == @game.output) ?
-       "wrong" : "correct"
-    end
-    session[:num_wrong] += 1 if flash.next[:guess_status] == "wrong"
+    guess(params[:guess])
     redirect '/game'
+  end
+
+  # Send data back to ajax using json
+  # When guessing with a large screen and Javascript enabled
+  post '/guess.json' do
+    guess(params[:guess])
+    content_type :json
+    { :num_wrong => session[:num_wrong],
+      :guess_status => flash.next[:guess_status],
+      :message => flash.next[:message].to_s,
+      :output => @game.output,
+      :state => @game.check_status.to_s
+      }.to_json
   end
 
   get '/win' do

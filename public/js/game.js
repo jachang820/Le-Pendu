@@ -12,12 +12,15 @@ $(document).ready(function() {
 	let begin_sound = new Audio('sounds/begin.wav');
 	let correct_sound = new Audio('sounds/correct.wav');
 	let wrong_sound = new Audio('sounds/wrong.wav');
+	let bg_music = new Audio(`sounds${window.location.pathname}.mp3`);
+	loop_music(bg_music);
 	
 	/* Lower volume */
-	text_sound.volume = 0.2;
-	begin_sound.volume = 0.2;
-	correct_sound.volume = 0.2;
-	wrong_sound.volume = 0.2;
+	text_sound.volume = 0.15;
+	begin_sound.volume = 0.4;
+	correct_sound.volume = 0.3;
+	wrong_sound.volume = 0.3;
+	bg_music.volume = 0.6;
 
 	/* Restore sound preferences from ajax */
 	let muted = ($("#volume-status").text() == "false") ? false : true;
@@ -32,7 +35,7 @@ $(document).ready(function() {
 	const MIN_WINDOW_WIDTH = 576;
 
 	animate_begin();
-	handle_guess_form();
+	show_guess_form();
 
 	if (window.location.pathname == "/game") {
 		shout_msg();
@@ -68,6 +71,8 @@ $(document).ready(function() {
 		}
 	}, DEFAULT_PERIOD);
 
+	$(window).resize(show_guess_form);
+
 	/* Animate "Cast a spell" button:
 	   1. Moves all elements to right and collapse
 	      until they disappear.
@@ -77,12 +82,12 @@ $(document).ready(function() {
 		text_sound.volume = 0;
 		begin_sound.play();
 		$(".begin").hide();
-		$(".sink, .plot, h1, .volume").animate({
+		$(".sink, .plot, h1, #credits, .volume").animate({
 			left: "+=30rem",
 			width: "-=30rem"
 		}, 1000, function() {
 			$("#cast-spell").submit();
-			$(".sink, .plot, h1, .volume").hide();
+			$(".sink, .plot, h1, #credits, .volume").hide();
 		});
 	});
 
@@ -90,10 +95,48 @@ $(document).ready(function() {
 	   Enter key starts new game besides on game screen.
 	*/
 	$(document).keypress(function(e) {
+		/* Guess form is visible on small screens to initiate
+		   onscreen keyboard with mobile. On large screens, use
+		   ajax to guess to avoid interrupting music.
+		*/
+		let letter = String.fromCharCode(e.which);
 		if ($(window).width() > MIN_WINDOW_WIDTH) {
 			if (window.location.pathname == "/game") {
-				$("#guess").val(String.fromCharCode(e.which));
-				$("#guess-form").submit();
+				$("#guess").val(letter);
+				$.ajax({
+					url: '/guess.json',
+					type: 'POST',
+					dataType: 'json',
+					data: {guess: letter},
+					success: function(data) {
+						/* Check end state */
+						if (data.state != "play") {
+							window.location.replace(`/${data.state}`);
+						}
+
+						/* Update crow if 4 or more wrong guesses. */
+						if (data.num_wrong >= 4) {
+							$("#crows-box").html(`<img id="crows" src="images/crows.png">`)
+						}
+
+						/* Update hanged man, speech bubble and word. */
+						$("#hang").attr("src", `images/hanged-man-${data.num_wrong}.png`);
+						$("span.bubble").text(data.message);
+						$("#word").text(data.output);
+						$("#shadow").text(data.output);
+
+						/* Invisible helper field. */
+						$("#guess-status").text(data.guess_status);
+
+						/* Process and draw new data. */
+						shout_msg();
+						guess_status();
+
+					},
+					error: function(XMLHttpRequest, textStatus, errorThrown) {
+						alert(`Error: ${errorThrown}`);
+					}
+				});
 			}
 			else {
 				$(".begin").click();
@@ -137,8 +180,6 @@ $(document).ready(function() {
 		});
 	});
 
-	$(window).resize(handle_guess_form);
-
 	/* Plays sound after guess */
 	function guess_status() {
 		if ($("#guess-status").text() == "correct") {
@@ -155,9 +196,14 @@ $(document).ready(function() {
 	            larger.
 	*/
 	function shout_msg() {
+		let status = $("#guess-status").text();
 		if ($("span.bubble").text().length > 0) {
-			if ($("span.bubble").text().length == 2) {
+			if ($("span.bubble").text().length == 2 &&
+				  (status == "correct" || status == "wrong")) {
 				$("span.bubble").attr("id", "letter");
+			}
+			else {
+				$("span.bubble").removeAttr("id", "letter");
 			}
 			$(".bubble").show();
 			setTimeout(function() {
@@ -174,6 +220,7 @@ $(document).ready(function() {
 	function mute_volume(event) {
 		let status = (typeof event === "boolean") ?
 			event : event.data;
+		bg_music.muted = status;
 		text_sound.muted = status;
 		begin_sound.muted = status;
 		correct_sound.muted = status;
@@ -207,13 +254,29 @@ $(document).ready(function() {
 	            hidden except in mobile (browser width
 	            is small).
 	*/
-	function handle_guess_form() {
+	function show_guess_form() {
 		if ($(window).width() > MIN_WINDOW_WIDTH) {
 			$("#guess-form").hide();
 		}
 		else {
 			$("#guess-form").show();
 		}
+	}
+
+	function loop_music(myAudio) {
+		bg_music.play();
+		if (typeof myAudio.loop == 'boolean')
+		{
+		    myAudio.loop = true;
+		}
+		else
+		{
+		    myAudio.addEventListener('ended', function() {
+		        this.currentTime = 0;
+		        this.play();
+		    }, false);
+		}
+		myAudio.play();
 	}
 
 });

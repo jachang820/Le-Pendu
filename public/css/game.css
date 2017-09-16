@@ -92,6 +92,20 @@ div.plot.new {
 	color: #6a6767;
 }
 
+#credits {
+	position: absolute;
+	top: 46.7vh;
+	left: calc(50vw - (100vh * 4/7) * 0.45);
+	background-color: #eeeeee;
+}
+
+#music {
+	position: absolute;
+	top: 0;
+	left: 0;
+	display: none;
+}
+
 /* Win */
 
 h1.win {
@@ -208,7 +222,7 @@ span.bubble {
 	font-size: 3em;
 }
 
-.word {
+#word {
 	position: absolute;
 	top : 70vh;
 	left: calc(50vw - (100vh * 4/7) * 0.485);
@@ -220,7 +234,7 @@ span.bubble {
 	text-align: center;
 }
 
-.shadow {
+#shadow {
 	position: absolute;
 	top: 75vh;
 	left: calc(50vw - (100vh * 4/7) * 0.31);

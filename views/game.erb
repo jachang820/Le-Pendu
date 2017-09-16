@@ -1,15 +1,18 @@
 				
 <div id="guess-status"><%= flash[:guess_status] %></div>
+<div id="crows-box">
 <% if session[:num_wrong] >= 4 %>
 	<img id="crows" src="images/crows.png">
 <% end %>
+</div>
 <img id="hang" src="images/hanged-man-<%= session[:num_wrong] %>.png">
 <img class="bubble" src="images/bubble.png">
 <span class="bubble"><%= flash[:message] %></span>
-<span class="word"><%= @game.output %></span>
-<span class="shadow"><%= @game.output %></span>
+<span id="word"><%= @game.output %></span>
+<span id="shadow"><%= @game.output %></span>
 
 <form id="guess-form" action="/guess" method="post">
   <input type="text" size="1" id="guess" name="guess" autocomplete="off"/>
   <input type="submit" value="Guess!"/>
 </form>
+<%= erb :volume %>

@@ -3,6 +3,7 @@ ruby '2.4.1'
 
 gem 'sinatra', '>= 2.0'
 gem 'sinatra-flash', '0.3.0'
+gem 'json', '2.1.0'
 
 group :development, :test do
   gem 'cucumber', '3.0.0.pre.2'

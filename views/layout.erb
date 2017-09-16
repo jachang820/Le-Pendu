@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link rel="icon" type="image/png" href="ico.png" sizes="16x16">
+		<link rel="icon" type="image/png" href="favicon.png" sizes="16x16">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" type="text/css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -18,9 +18,6 @@
 					<img src="images/<%= @wallpaper %>.jpg" alt="Image describing game state.">
 				</div>
 				<%= yield %>
-				<input type="image" class="volume" id="audio" src="images/speaker.svg" alt="Speaker" />
-				<input type="image" class="volume" id="mute" src="images/mute.svg" alt="Mute" />
-				<span id="volume-status"><%= session[:muted] %></span>
 				<%= erb :new_spell %>
 			</div>
 		</main>
