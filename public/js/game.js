@@ -83,8 +83,8 @@ $(document).ready(function() {
 		begin_sound.play();
 		$(".begin").hide();
 		$(".sink, .plot, h1, #credits, .volume").animate({
-			left: "+=30rem",
-			width: "-=30rem"
+			left: "+=45vh",
+			width: "-=45vh"
 		}, 1000, function() {
 			$("#cast-spell").submit();
 			$(".sink, .plot, h1, #credits, .volume").hide();
@@ -99,15 +99,15 @@ $(document).ready(function() {
 		   onscreen keyboard with mobile. On large screens, use
 		   ajax to guess to avoid interrupting music.
 		*/
-		let letter = String.fromCharCode(e.which);
+		let letter = e.which;
 		if ($(window).width() > MIN_WINDOW_WIDTH) {
 			if (window.location.pathname == "/game") {
-				$("#guess").val(letter);
+				$("#guess").val(String.fromCharCode(letter));
 				$.ajax({
 					url: '/guess.json',
 					type: 'POST',
 					dataType: 'json',
-					data: {guess: letter},
+					data: {guess: String.fromCharCode(letter)},
 					success: function(data) {
 						/* Check end state */
 						if (data.state != "play") {
@@ -139,7 +139,9 @@ $(document).ready(function() {
 				});
 			}
 			else {
-				$(".begin").click();
+				if (String.fromCharCode(letter) == 13) {
+					$(".begin").click();
+				}
 			}
 		}
 	});

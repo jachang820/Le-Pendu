@@ -22,8 +22,8 @@ img {
 	position: absolute;
 	top: 90vh;
 	left: calc(50vw - (100vh * 4/7) * 0.4);
-	width: 2em;
-	height: 2em;
+	width: 5.5vh;
+	height: 5.5vh;
 	cursor: pointer;
 }
 
@@ -40,14 +40,14 @@ img {
 
 .begin {
 	position: absolute;
-	top: 90vh;
+	top: 91vh;
 	left: 50vw;
-	height: 2rem;
-	width: 15rem;
+	height: 5vh;
+	width: 27vh;
 	background-color: transparent;
 	border: none;
 	color: #cc2233;
-	font-size: 2rem;
+	font-size: 3.5vh;
 	filter: drop-shadow(0.5px 0.5px 0.5px #ddcccc) 
 					drop-shadow(-0.5px -0.5px 0.5px #ddcccc) 
 					drop-shadow(0.5px -0.5px 0.5px #ddcccc) 
@@ -55,14 +55,23 @@ img {
 }
 
 h1 {
-	margin: 0;
+	margin-top: 0;
+	margin-bottom: 2vh;
 	font-family: Garamond, serif;
 	font-weight: bold;
+	font-size: 5.5vh;
 }
 
 .sink {
 	display: none;
 	font-family: 'Lucida Console', Monaco, monospace;
+}
+
+p, span, a, input {
+	display: inline-block;
+	font-size: 2.4vh;
+	line-height: 3.2vh;
+	margin: 0;
 }
 
 /* New */
@@ -79,7 +88,7 @@ div.plot.new {
 	background-color: #2a2924;
 	width: calc((100vh * 4/7) * 0.9);
 	height: 48vh;
-	padding: 1rem;
+	padding: 2.5vh;
 	border-style: double;
 	border-color: #c9bcac;
 }
@@ -119,7 +128,7 @@ div.plot.win {
 	background-color: transparent;
 	width: calc((100vh * 4/7) * 0.7);
 	height: 48vh;
-	padding: 1rem;
+	padding: 2.5vh;
 	border: none;
 }
 
@@ -149,7 +158,7 @@ div.plot.lose {
 	background-color: transparent;
 	width: calc((100vh * 4/7) * 0.7);
 	height: 48vh;
-	padding: 1rem;
+	padding: 2.5vh;
 	border: none;
 }
 
@@ -174,7 +183,7 @@ div.plot.nihilism {
 	background-color: transparent;
 	width: calc((100vh * 4/7) * 0.7);
 	height: 48vh;
-	padding: 1rem;
+	padding: 2.5vh;
 	border: none;
 }
 
@@ -187,6 +196,7 @@ div.plot.nihilism {
 }
 
 /* Game */
+
 #hang {
 	position: absolute;
 	top : 9.4vh;
@@ -219,7 +229,7 @@ span.bubble {
 }
 
 #letter {
-	font-size: 3em;
+	font-size: 7vh;
 }
 
 #word {
@@ -239,7 +249,7 @@ span.bubble {
 	top: 75vh;
 	left: calc(50vw - (100vh * 4/7) * 0.31);
 	width: calc(100vh * 4/7);
-	height: 1em;
+	height: 3vh;
 	font-size: 2.3vh;
 	font-family: 'Lucida Console', Monaco, monospace;
 	color: #1f1e19;
@@ -265,6 +275,19 @@ span.bubble {
 
 #guess-form {
 	position: absolute;
-	top: 64vh;
+	top: 62vh;
 	left: calc(50vw - (100vh * 4/7) * 0.15);
+}
+
+#guess-form input {
+	height: 4vh;
+	
+}
+
+#guess {
+	width: calc((100vh * 4/7) * 0.08);
+}
+
+#guess-button {
+	width: calc((100vh * 4/7) * 0.2);
 }
