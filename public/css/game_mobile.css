@@ -253,8 +253,8 @@
 		top: calc(0.75 * 90vh);
 		left: calc(50vw - (90vh * 4/7) * 0.31);
 		width: calc(90vh * 4/7);
-		height: calc(0.3 * 90vh);
-		font-size: calc(2.3 * 90vh);
+		height: calc(0.03 * 90vh);
+		font-size: calc(0.023 * 90vh);
 		font-family: 'Lucida Console', Monaco, monospace;
 		color: #1f1e19;
 		letter-spacing: 0.7em;
