@@ -229,6 +229,7 @@ span.bubble {
 }
 
 #letter {
+	top: 28vh;
 	font-size: 7vh;
 }
 
